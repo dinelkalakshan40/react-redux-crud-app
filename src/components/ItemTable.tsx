@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import {removeItem, setCurrentItem} from "../reducers/ItemSlice";
 import {RootState} from "../store/Store";
+import "../style/TableStyle.css"
 
 
 const ItemTable = () => {
@@ -15,34 +16,38 @@ const ItemTable = () => {
     };
 
     return (
-        <table>
-            <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {items.map((item) => (
-                <tr key={item.code} onClick={() => handleRowClick(item)}>
-                    <td>{item.code}</td>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.qty}</td>
-                    <td>
-                        <td>
-                            <button onClick={() => handleDelete(item.code)}>
-                                Delete
-                            </button>
-                        </td>
-                    </td>
+        <div className="ListContainer">
+            <h2 className="header">Item List</h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Actions</th>
                 </tr>
-            ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {items.map((item) => (
+                    <tr key={item.code} onClick={() => handleRowClick(item)}>
+                        <td>{item.code}</td>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>{item.qty}</td>
+                        <td>
+                            <td>
+                                <button className="deleteButton" onClick={() => handleDelete(item.code)}>
+                                    Delete
+                                </button>
+                            </td>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+
     );
 };
 

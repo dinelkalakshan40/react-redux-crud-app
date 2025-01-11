@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {addItem, updateItem} from "../reducers/ItemSlice";
 import {RootState} from "../store/Store";
+import "../style/FormStyle.css"
 
 
 
@@ -51,7 +52,7 @@ const ItemForm = () => {
     };
 
     return (
-        <form>
+        <form className="form-container">
             <input
                 type="text"
                 value={code ?? ""}

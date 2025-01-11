@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 /*import {RootState} from "@reduxjs/toolkit/query";*/
 import {removeCustomer,setCustomerForEdit} from "../reducers/CustomersSlice";
 import {RootState} from "../store/Store"
+import "../style/TableStyle.css"
 
 
 
@@ -20,9 +21,9 @@ const CustomerTable = () => {
 
 
     return (
-        <div>
-            <h2>Customer List</h2>
-            <table>
+        <div className="ListContainer">
+            <h2 className="header">Customer List</h2>
+            <table className="table">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -40,7 +41,7 @@ const CustomerTable = () => {
                         <td>{customer.email}</td>
                         <td>{customer.phone}</td>
                         <td>
-                            <button onClick={() => handleDelete(customer.id)}>
+                            <button className="deleteButton" onClick={() => handleDelete(customer.id)}>
                                 Delete
                             </button>
                         </td>

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addCustomer, updateCustomer} from "../reducers/CustomersSlice";
 import {RootState} from "../store/Store";
+import   "../style/FormStyle.css"
 
 
 const CustomerForm = () => {
@@ -51,7 +52,7 @@ const CustomerForm = () => {
     };
 
     return (
-        <form>
+        <form className="form-container">
             <input type="number" value={id ?? ""} onChange={(e) => setId(Number(e.target.value))} placeholder="id"/>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required/>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required/>
