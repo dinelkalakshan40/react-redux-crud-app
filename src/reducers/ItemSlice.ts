@@ -15,7 +15,7 @@ const itemSlice = createSlice({
             state.items.push(action.payload);
         },
         updateItem: (state, action: PayloadAction<Item>) => {
-            const index = state.items.findIndex((item) => item.id === action.payload.code);
+            const index = state.items.findIndex((item) => item.code === action.payload.code);
             if (index !== -1) {
                 state.items[index] = action.payload;
             }
